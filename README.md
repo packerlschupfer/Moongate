@@ -47,7 +47,7 @@ Moongate is a free, open-source Android app for **full remote control of your Kl
 | **Auto local / remote** | Tries home WiFi first on every poll; falls back to the Cloudflare tunnel within ~2s when you're away, and flips back to "Local" the moment you're home again. |
 | **App lock** | Optional PIN + biometric (fingerprint/face) lock on launch, with configurable auto-lock and screenshot protection. Off by default. |
 | **Hardened remote access** | Every internet-facing request is gated by a short-lived signed token. The tunnel URL alone gives an attacker nothing — just flat `401`s with no Mainsail/Moonraker fingerprint. |
-| **Secure, simple pairing** | One Klipper command makes a time-limited QR + code. LAN-only — no port forwarding, static IP, or DNS to manage. |
+| **Secure, simple pairing** | One Klipper command makes a time-limited QR + code — scan it for an instant connection. LAN-only: no port forwarding, static IP, or DNS to manage. Printer behind a reverse proxy or in Docker? Set its address by hand. |
 | **Themes &amp; layout** | System / Light / Dark / fully **Custom** colours, a 1–3 column grid, font scaling, and optional landscape. |
 | **Backup &amp; in-app updates** | Back up / restore your printer list to a file, and get a one-tap prompt when a new release lands. |
 

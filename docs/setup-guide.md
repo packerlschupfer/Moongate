@@ -49,7 +49,7 @@ At the end you'll see:
 
 ## Step 2 — Install the app
 
-Download the latest APK from the [APK folder](https://github.com/PEEKYPAUL/Moongate/tree/master/APK) and install it on your phone.
+Download the latest APK from the [Releases page](https://github.com/PEEKYPAUL/Moongate/releases/latest) and install it on your phone.
 
 > Latest public release: **v0.4.2** — the version this guide describes.
 
@@ -60,12 +60,14 @@ Download the latest APK from the [APK folder](https://github.com/PEEKYPAUL/Moong
 1. In Mainsail, type `MOONGATE_PAIR` in the G-code console
 2. **From a device on the same WiFi as the Pi** (a PC, tablet, or another phone — not the phone you're installing on, unless you want to do the manual-code path) open `http://<your-pi-ip>/moongate-pair.html`
 3. A QR code appears
-4. In the Moongate app, tap **+** → **Scan QR** and point your phone's camera at the QR
-5. Done — your printer appears in the dashboard
+4. In the Moongate app, tap **+** → **Scan QR code** and point your phone's camera at the QR — this is the **instant** method (the QR carries the Pi's local address, so the app connects over your WiFi right away)
+5. Done — your printer appears in the dashboard as **Local** straight away, with remote (tunnel) access syncing in the background
 
 > The pair page is **LAN-only** in v0.4 by design. Visiting the equivalent URL over the Cloudflare tunnel returns 401 — pairing intentionally requires being on the same network as the Pi, so leaking the tunnel URL can't be used to pair an attacker's device.
 
-**No working camera on your phone?** Type the **GATE code** shown in the Klipper console (`GATE-XXXX-XXXX`) directly into the app. Tap **+** to open Add Printer — the GATE code section sits right below the Scan QR button with two 4-digit boxes and a numpad.
+**No working camera on your phone?** Type the **GATE code** shown in the Klipper console (`GATE-XXXX-XXXX`) directly into the app. Tap **+** to open Add Printer — the GATE code section sits right below the Scan QR button with two 4-digit boxes and a numpad. The GATE code is the **alternative** method, though: without the QR's embedded address the app has to find the printer on your network, so the dashboard can take a few minutes to come fully online. Scanning the QR is instant.
+
+**Printer behind a reverse proxy (Traefik, Caddy, NPM) or in Docker?** Auto-discovery can't reach it. Expand **Advanced — custom network** on the Add Printer screen (or open the printer later and tap the ✏️ edit icon) and enter the address you'd use to open its web page (Mainsail / Fluidd) in a browser — e.g. `192.168.1.50:7125`. See [TROUBLESHOOTING.md](../TROUBLESHOOTING.md) for the full rundown.
 
 ---
 
