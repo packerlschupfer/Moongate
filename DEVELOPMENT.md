@@ -296,7 +296,7 @@ So **the only thing you commit by hand is code + screenshots + docs**. The relea
 
 3. Add the version's entry to [`mobile/assets/changelog.json`](mobile/assets/changelog.json) (newest first). This single file feeds **both** the in-app "What's new" dialog (bundled) **and** the update banner's "What's new" overlay (fetched from `master`, so users can preview a pending update's notes before installing). Keep it in step with the CHANGELOG.md row above.
 
-4. Commit and push to `master`. CI does the rest — versioned APK + `latest_version.json` update + commit-back happens automatically.
+4. **Put steps 1–3 in the same PR** and merge it (releases are PR-based, not direct pushes). A version bump cuts a release and fires the in-app update banner, so the changelog must ride along in that PR — the **`changelog-guard` CI check fails any PR that bumps `version:` without also updating `mobile/assets/changelog.json` and `CHANGELOG.md`**. On merge, CI does the rest — versioned APK + `latest_version.json` update + commit-back happen automatically.
 
 In-app, users running an older version will see the update banner appear within ~30 s of the next launch.
 
