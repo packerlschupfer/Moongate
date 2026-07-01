@@ -2,6 +2,7 @@
   {
     "version": "v0.9.42",
     "bullets": [
+      "More reliable multi-toolhead detection: tool changers (klipper-toolchanger / StealthChanger) are now recognised straight from the printer's tool setup, reading each tool's own hotend and the active tool, so every hotend shows on the dashboard. Plain single-hotend and IDEX printers are detected exactly as before.",
       "Multi-toolhead preheat: long-press the temperatures on a tool changer or IDEX printer and the Preheat sheet now lists every hotend (T0, T1, T2 and so on) as its own row, so you can set them all at once, plus the bed. Single-hotend printers look exactly as before.",
       "Multi-toolhead notifications: the print notification's hotend reading now shows every tool's temperature on one line (for example 210° 205° 25°) instead of just the first tool. Single-hotend printers still show the one reading.",
       "Fixed: the \"Printer unreachable\" screen (shown when a printer can't be reached over the tunnel) now fills the whole page in your theme, instead of leaving a blank strip down the side with the failed page showing through.",
